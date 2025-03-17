@@ -20,17 +20,21 @@ function Card() {
 },
         
     ];
+
+    const handlemouse=(val)=>{alert(val.instock  ? "Its in stock" :"Sorry! be back in sometime")};
+
   return (
     <div className='w-full h-screen flex justify-center items-center gap-10 bg-red-200'>
       {data.map((val,index)=>
-          <div className='w-52 bg-zinc-100 overflow-hidden rounded-md'>
+          <div key={index} className='w-52 bg-zinc-100 overflow-hidden rounded-md'>
           <div className='w-full h-32 bg-zinc-300 '>
               <img  className='w-full h-full object-cover ' src= {val.image} alt="" />
           </div>
           <div className='w-full px-3 py-4 '>
               <h2  className='font-semibold'>{val.name}</h2>
               <p className='text-xs mt-5'>{val.description}</p>
-              <button className={` ${val.instock ?"bg-purple-600" :"bg-red-700"} text-white py-1  mt-3  px-4 rounded-md`}>{val.instock ?"In Stock" :"Out Of Stock"}</button>
+              <button  onMouseOver={() => handlemouse(val)}
+ className={` ${val.instock ?"bg-purple-600" :"bg-red-700"} text-white py-1  mt-3  px-4 rounded-md`}>{val.instock ?"In Stock" :"Out Of Stock"}</button>
           </div>
            </div>
 
